@@ -11,6 +11,7 @@
       --muted: #716653;
       --line: rgba(32, 27, 20, .15);
       --yellow: #ffd928;
+      --mint: #8fe8df;
       --green: #1d7a55;
       --red: #d6462f;
       --blue: #255a86;
@@ -666,6 +667,7 @@
       background: var(--yellow);
     }
 
+    .jersey-label.stage-winner { background: var(--mint); }
     .jersey-label.green { background: #56d78f; }
     .jersey-label.dots {
       background:
@@ -1244,7 +1246,7 @@
           <h3 id="shareRoute">Carcassonne → Foix</h3>
           <p class="share-meta" id="shareMeta">Stage 4 · 181.9 km · Hilly · 2026-07-07</p>
           <div class="jersey-grid">
-            <div class="jersey-row"><span class="jersey-label">STAGE</span><div><strong id="shareWinner">马斯·佩德森</strong><em>Mads Pedersen · Lidl-Trek</em><span>Stage winner</span></div></div>
+            <div class="jersey-row"><span class="jersey-label stage-winner">STAGE</span><div><strong id="shareWinner">马斯·佩德森</strong><em>Mads Pedersen · Lidl-Trek</em><span>Stage winner</span></div></div>
             <div class="jersey-row"><span class="jersey-label">YELLOW</span><div><strong id="shareYellow">托斯坦·特雷恩</strong><em>Torstein Træen · Uno-X Mobility</em><span>General classification</span></div></div>
             <div class="jersey-row"><span class="jersey-label green">GREEN</span><div><strong id="shareGreen">马斯·佩德森</strong><em>Mads Pedersen · Lidl-Trek</em><span>Points classification</span></div></div>
             <div class="jersey-row"><span class="jersey-label dots">KOM</span><div><strong id="shareDots">亚历克斯·鲍丁</strong><em>Alex Baudin · EF Education-EasyPost</em><span>Mountains classification</span></div></div>
@@ -1758,7 +1760,7 @@
       ctx.font = "800 30px Avenir, sans-serif";
       ctx.fillText(`${stage.distance} · ${stage.typeLabel} · ${stage.date}`, 70, 462);
 
-      drawJersey(ctx, 70, 525, "STAGE", "#ffd928", dailyShare.winner, "Stage winner");
+      drawJersey(ctx, 70, 525, "STAGE", "#8fe8df", dailyShare.winner, "Stage winner");
       drawJersey(ctx, 70, 675, "YELLOW", "#ffd928", dailyShare.yellow, "General classification");
       drawJersey(ctx, 70, 825, "GREEN", "#56d78f", dailyShare.green, "Points classification");
       drawJersey(ctx, 70, 975, "KOM", "#fffaf0", dailyShare.dots, "Mountains classification");
@@ -1778,9 +1780,24 @@
       ctx.fillStyle = color;
       roundRect(ctx, x + 28, y + 35, 162, 54, 27);
       ctx.fill();
+      if (label === "KOM") {
+        ctx.fillStyle = "#d6462f";
+        for (let dotX = x + 48; dotX <= x + 168; dotX += 38) {
+          ctx.beginPath();
+          ctx.arc(dotX, y + 48, 10, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(dotX, y + 78, 10, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
       ctx.fillStyle = "#11100e";
       ctx.font = "900 24px Menlo, monospace";
-      ctx.fillText(label, x + 52, y + 70);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(label, x + 109, y + 62);
+      ctx.textAlign = "start";
+      ctx.textBaseline = "alphabetic";
       const rider = typeof name === "object" && name ? name : { name, detail: "" };
       ctx.fillStyle = "#fffaf0";
       ctx.font = "900 38px Avenir, sans-serif";
