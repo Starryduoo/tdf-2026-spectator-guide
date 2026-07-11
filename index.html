@@ -949,6 +949,190 @@
       font-size: 28px;
     }
 
+    .road-ahead-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .future-card {
+      position: relative;
+      min-height: 620px;
+      border: 1px solid rgba(32, 27, 20, .2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 240, .88), rgba(239, 226, 198, .72)),
+        repeating-linear-gradient(90deg, transparent 0 42px, rgba(32, 27, 20, .05) 43px 44px);
+      box-shadow: var(--shadow);
+    }
+
+    .future-card.dark {
+      background:
+        linear-gradient(135deg, rgba(17, 16, 14, .96), rgba(17, 16, 14, .86)),
+        repeating-linear-gradient(90deg, transparent 0 42px, rgba(255, 217, 40, .11) 43px 48px);
+      color: var(--white);
+      border-color: rgba(255, 250, 240, .16);
+    }
+
+    .future-card:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(112deg, transparent 0 58%, rgba(214, 70, 47, .18) 58.4% 59.2%, transparent 59.6%),
+        linear-gradient(0deg, rgba(32, 27, 20, .045) 1px, transparent 1px) 0 0 / 100% 32px;
+      pointer-events: none;
+    }
+
+    .future-card.dark:before {
+      background:
+        linear-gradient(112deg, transparent 0 58%, rgba(255, 217, 40, .18) 58.4% 59.2%, transparent 59.6%),
+        linear-gradient(0deg, rgba(255, 250, 240, .06) 1px, transparent 1px) 0 0 / 100% 32px;
+    }
+
+    .future-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    .future-label {
+      width: fit-content;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: var(--radius);
+      background: var(--mint);
+      color: var(--coal);
+      font-family: var(--mono);
+      font-weight: 950;
+      text-transform: uppercase;
+      box-shadow: 5px 5px 0 rgba(32, 27, 20, .13);
+    }
+
+    .future-card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(38px, 5vw, 72px);
+      line-height: .94;
+      letter-spacing: 0;
+    }
+
+    .future-card.dark h3 { color: var(--yellow); }
+
+    .future-deck {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 760;
+      font-size: 16px;
+    }
+
+    .future-deck p { margin: 0; }
+
+    .future-card.dark .future-deck {
+      color: rgba(255, 250, 240, .78);
+    }
+
+    .stage-chip-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .future-stage {
+      min-height: 94px;
+      border: 1px solid rgba(32, 27, 20, .15);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 240, .62);
+      padding: 10px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .future-card.dark .future-stage {
+      background: rgba(255, 250, 240, .08);
+      border-color: rgba(255, 250, 240, .13);
+    }
+
+    .future-stage.key {
+      border-color: rgba(214, 70, 47, .7);
+      box-shadow: inset 0 0 0 2px rgba(214, 70, 47, .13);
+    }
+
+    .future-card.dark .future-stage.key {
+      border-color: rgba(255, 217, 40, .72);
+      box-shadow: inset 0 0 0 2px rgba(255, 217, 40, .13);
+    }
+
+    .future-stage b {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--red);
+      text-transform: uppercase;
+    }
+
+    .future-card.dark .future-stage b { color: var(--yellow); }
+
+    .future-stage strong {
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.05;
+    }
+
+    .future-stage span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .future-card.dark .future-stage span {
+      color: rgba(255, 250, 240, .66);
+    }
+
+    .future-watch {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: rgba(255, 217, 40, .18);
+      border: 1px dashed rgba(32, 27, 20, .22);
+    }
+
+    .future-card.dark .future-watch {
+      background: rgba(255, 217, 40, .1);
+      border-color: rgba(255, 217, 40, .24);
+    }
+
+    .future-watch h4 {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .future-watch p {
+      margin: 0;
+      line-height: 1.5;
+      font-weight: 820;
+    }
+
+    .time-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 760;
+    }
+
     .form-grid {
       display: grid;
       gap: 11px;
@@ -1079,6 +1263,7 @@
 
       .stats,
       .stage-grid,
+      .road-ahead-grid,
       .detail-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1113,8 +1298,14 @@
 
       .stats,
       .stage-grid,
+      .road-ahead-grid,
+      .stage-chip-grid,
       .detail-grid {
         grid-template-columns: 1fr;
+      }
+
+      .future-card {
+        min-height: auto;
       }
 
       .stage-card {
@@ -1142,6 +1333,7 @@
       <nav class="nav" aria-label="页面导航">
         <a href="#overview">总览</a>
         <a href="#stages">赛段</a>
+        <a href="#road-ahead">前瞻</a>
         <a href="#results">赛果</a>
         <a href="#map">路线</a>
       </nav>
@@ -1230,6 +1422,62 @@
         </div>
       </div>
       <div class="stage-grid" id="stageGrid"></div>
+    </section>
+
+    <section id="road-ahead">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Road Ahead</p>
+          <h2 class="section-title">Coming Next</h2>
+        </div>
+      </div>
+      <div class="road-ahead-grid" aria-label="未来赛段前瞻">
+        <article class="future-card">
+          <div class="future-inner">
+            <span class="future-label">S10-S15 · Week Two</span>
+            <h3>The Pressure Cooker</h3>
+            <div class="future-deck">
+              <p>从中央高原到孚日，再推向 Plateau de Solaison。第二周不只是“等阿尔卑斯”，它会持续消耗队伍、削弱副将、给突围集团制造窗口。</p>
+              <p>真正的危险是：看似平静的转场日，可能每天都在为第三周制造裂缝。</p>
+            </div>
+            <div class="stage-chip-grid">
+              <div class="future-stage key"><b>S10 Mountain</b><strong>Aurillac → Le Lioran</strong><span>休息日后第一枪，中央高原短陡坡重新点火。</span></div>
+              <div class="future-stage"><b>S11 Flat</b><strong>Vichy → Nevers</strong><span>冲刺车队回血，绿衫积分战继续。</span></div>
+              <div class="future-stage"><b>S12 Flat</b><strong>Magny-Cours → Chalon</strong><span>赛车场出发，冲刺与横风都值得盯。</span></div>
+              <div class="future-stage"><b>S13 Hilly</b><strong>Dole → Belfort</strong><span>205 km 长距离，古典赛型车手和兔子团机会。</span></div>
+              <div class="future-stage key"><b>S14 Mountain</b><strong>Mulhouse → Le Markstein</strong><span>孚日重头戏，GC 车手恢复力测试。</span></div>
+              <div class="future-stage key"><b>S15 Mountain</b><strong>Champagnole → Solaison</strong><span>第二周压轴，高山终点可能拉开大时间差。</span></div>
+            </div>
+            <div class="future-watch">
+              <h4>观赛重点</h4>
+              <p>S10-S15 是一段“把人磨薄”的赛程。冲刺手能在 S11-S12 抢回舞台，但 GC 队伍真正盯着 S14 和 S15：谁还能带着野心进入最后一周，会在这里先露出答案。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="future-card dark">
+          <div class="future-inner">
+            <span class="future-label">S16-S21 · Final Week</span>
+            <h3>Double Alpe, No Hiding</h3>
+            <div class="future-deck">
+              <p>第三周先用唯一一场个人计时赛重新计算秒差，再把比赛送进阿尔卑斯三连击。S19-S20 连续两天登 Alpe d'Huez，是今年路线最有辨识度的戏剧核心。</p>
+              <p>到这里，战术借口会越来越少，腿和恢复能力会变成最诚实的语言。</p>
+            </div>
+            <div class="stage-chip-grid">
+              <div class="future-stage key"><b>S16 ITT</b><strong>Évian → Thonon</strong><span>唯一 ITT，平路加缓坡，GC 秒差重新洗牌。</span></div>
+              <div class="future-stage"><b>S17 Rolling</b><strong>Chambéry → Voiron</strong><span>标成平路但有起伏，适合兔子团偷袭。</span></div>
+              <div class="future-stage key"><b>S18 Mountain</b><strong>Voiron → Orcières</strong><span>阿尔卑斯开幕，GC 队伍开始排兵布阵。</span></div>
+              <div class="future-stage key"><b>S19 Mountain</b><strong>Gap → Alpe d'Huez</strong><span>短而狠，经典 21 个发夹弯，攻击窗口极早。</span></div>
+              <div class="future-stage key"><b>S20 Queen Stage</b><strong>Bourg-d'Oisans → Alpe d'Huez</strong><span>Croix de Fer、Télégraphe、Galibier、Sarenne 背面登顶。</span></div>
+              <div class="future-stage"><b>S21 Paris</b><strong>Thoiry → Champs-Élysées</strong><span>蒙马特绕圈增加变数，香街仍是最后舞台。</span></div>
+            </div>
+            <div class="future-watch">
+              <h4>观赛重点</h4>
+              <p>S16-S21 是“无法再伪装”的一周。计时赛暴露状态，Orcières-Merlette 拉开序幕，双登 Alpe d'Huez 则可能写下本届环法真正的总冠军判决书。</p>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="results">
@@ -1321,7 +1569,10 @@
     <a href="https://www.theguardian.com/sport/live/2026/jul/09/tour-de-france-2026-stage-six-updates-as-riders-take-on-the-tourmalet-live">The Guardian S6 live</a>,
     <a href="https://www.bicycling.com/tour-de-france/a71772913/tour-de-france-2026-stage-6-results/">Bicycling S6 results</a>,
     <a href="https://www.theguardian.com/sport/live/2026/jul/10/tour-de-france-2026-stage-seven-updates-hagetmau-to-bordeaux-cycling-live">The Guardian S7 live</a>,
-    <a href="https://www.welt.de/article6a51124b36e98236c4bc466d">Welt S7 report</a>.
+    <a href="https://www.welt.de/article6a51124b36e98236c4bc466d">Welt S7 report</a>,
+    <a href="https://www.cyclingnews.com/features/tour-de-france-2026-route-analysis-stages-where-the-race-can-be-won-or-lost/">Cyclingnews key stages analysis</a>,
+    <a href="https://www.cyclingweekly.com/news/tour-de-france-route-all-you-need-to-know">Cycling Weekly route overview</a>,
+    <a href="https://www.theguardian.com/sport/2026/jul/01/tour-de-france-2026-stage-by-stage-guide-to-this-years-race">The Guardian stage guide</a>.
   </footer>
 
   <div class="modal" id="stageModal" aria-hidden="true">
@@ -1773,10 +2024,10 @@
       drawJersey(ctx, 70, 1125, "WHITE", "#fffaf0", dailyShare.white, "Young rider classification");
 
       ctx.fillStyle = "#fffaf0";
-      wrapText(ctx, dailyShare.note, 70, 1308, 930, 38, "850 34px Avenir, sans-serif");
+      wrapText(ctx, dailyShare.note, 70, 1292, 930, 36, "850 31px Avenir, sans-serif", 3);
       ctx.fillStyle = "rgba(255,250,240,.5)";
       ctx.font = "800 22px Menlo, monospace";
-      ctx.fillText("Becoming Alive Lab by Starryduoo", 70, 1392);
+      ctx.fillText("Becoming Alive Lab by Starryduoo", 70, 1400);
     }
 
     function drawJersey(ctx, x, y, label, color, name, sub) {
@@ -1829,21 +2080,31 @@
       ctx.closePath();
     }
 
-    function wrapText(ctx, text, x, y, maxWidth, lineHeight, font) {
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight, font, maxLines = Infinity) {
       ctx.font = font;
       const words = String(text).split(" ");
       let line = "";
+      let lines = 0;
       for (const word of words) {
         const testLine = line ? `${line} ${word}` : word;
         if (ctx.measureText(testLine).width > maxWidth && line) {
+          if (lines + 1 >= maxLines) {
+            let clipped = `${line}...`;
+            while (ctx.measureText(clipped).width > maxWidth && clipped.length > 4) {
+              clipped = `${clipped.slice(0, -4)}...`;
+            }
+            ctx.fillText(clipped, x, y);
+            return;
+          }
           ctx.fillText(line, x, y);
+          lines += 1;
           line = word;
           y += lineHeight;
         } else {
           line = testLine;
         }
       }
-      ctx.fillText(line, x, y);
+      if (line && lines < maxLines) ctx.fillText(line, x, y);
     }
 
     function fitText(ctx, text, x, y, maxWidth, startSize, weight, family) {
